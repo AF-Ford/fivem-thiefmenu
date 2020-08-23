@@ -95,17 +95,7 @@ AddEventHandler('esx_okradanie:handcuff', function()
 		FreezeEntityPosition(playerPed, true)
 		DisplayRadar(false)
 
-		if Config.EnableHandcuffTimer then
-			if handcuffTimer.active then
-				ESX.ClearTimeout(handcuffTimer.task)
-			end
-
-			StartHandcuffTimer()
-		end
 	else
-		if Config.EnableHandcuffTimer and handcuffTimer.active then
-			ESX.ClearTimeout(handcuffTimer.task)
-		end
 
 		ClearPedSecondaryTask(playerPed)
 		SetEnableHandcuffs(playerPed, false)
@@ -129,10 +119,6 @@ AddEventHandler('esx_okradanie:unrestrain', function()
 		FreezeEntityPosition(playerPed, false)
 		DisplayRadar(true)
 
-		-- end timer
-		if Config.EnableHandcuffTimer and handcuffTimer.active then
-			ESX.ClearTimeout(handcuffTimer.task)
-		end
 	end
 end)
 
